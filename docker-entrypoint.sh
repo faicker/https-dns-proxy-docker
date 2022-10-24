@@ -25,5 +25,11 @@ fi
 if [ ! -z "$POLLING_INTERVAL" ]; then
 	EXTRA_FLAGS="${EXTRA_FLAGS} -i ${POLLING INTERVAL} "
 fi
+if [ ! -z "$LISTEN_PORT" ]; then
+	EXTRA_FLAGS="${EXTRA_FLAGS} -p ${LISTEN_PORT} "
+fi
+if [ ! -z "$LISTEN_IP" ]; then
+	EXTRA_FLAGS="${EXTRA_FLAGS} -a ${LISTEN_IP} "
+fi
 
 exec /bin/https_dns_proxy -b $DNS_SERVERS -r $RESOLVER_URL -a 0.0.0.0 $EXTRA_FLAGS
